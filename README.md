@@ -41,14 +41,14 @@ $ yarn start
 ```
 The app will be running in the following address: http://localhost:3000.
 
-> ### It is necessary to create an account in [Firebase](https://firebase.google.com/) and a project with Realtime Database enabled.
+> It is necessary to create an account in [Firebase](https://firebase.google.com/) and a project with Realtime Database enabled.
 > Here is a set of rules that you can use:
 > ```
->    {
->    "rules": {
->      ".read": false,
->      ".write": "auth != null",
->      "$roomId": {
+>  {
+>   "rules": {
+>     ".read": false,
+>     ".write": "auth != null",
+>     "$roomId": {
 >       ".read": true,
 >       ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)",
 >       "questions": {
@@ -58,11 +58,10 @@ The app will be running in the following address: http://localhost:3000.
 >            ".read": true,
 >            ".write": "auth != null && (!data.exists() || data.child('authorId').val() == auth.id)"  
 >          }
->        }
->      }
->    }
+>       }
+>     }
+>   }
 >  }
->}
 > ```
 > ### This project was also deployed with firebaste hosting: https://letmeask-eeac5.web.app/
 

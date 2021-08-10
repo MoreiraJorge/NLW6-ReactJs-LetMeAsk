@@ -33,7 +33,7 @@ export function AdminRoom() {
     }
 
     async function handleDeleteQuestion(questionId: string) {
-        if (window.confirm("Tem certeza que você deseja excluir esta pergunta?")) {
+        if (window.confirm("Are you sure you want to delete this question?")) {
             await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
         }
 
@@ -58,15 +58,15 @@ export function AdminRoom() {
                     <img src={logoImg} alt="Letmeask" />
                     <div>
                         <RoomCode code={roomId} />
-                        <Button IsOutlined onClick={handleEndRoom}>Encerrar sala</Button>
+                        <Button IsOutlined onClick={handleEndRoom}>Close Room</Button>
                     </div>
                 </div>
             </header>
 
             <main>
                 <div className="room-title">
-                    <h1>Sala {title}</h1>
-                    {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+                    <h1>Room {title}</h1>
+                    {questions.length > 0 && <span>{questions.length} question(s)</span>}
                 </div>
 
                 <div className="question-list">
